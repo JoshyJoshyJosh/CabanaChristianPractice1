@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create a New Event</title>
+    <script src = "js/formvalidation.js"></script>
+</head>
+<body>
+    <form>
+    <fieldset>
+    <style> 
+    div#container 
+    {
+        background-color:gray;
+        padding:9px
+    }
+    </style>
+    <div id = "container">
+        <h3.5> <b>Create a New Event </b></h3.5>
+        <div id = "content"></div>
+    </div>
+    </fieldset>
+
+    <fieldset>
+    <!-- Event Type-->
+    <label for = "eventType"><b>Event Type:</b></label> &nbsp;&nbsp;&nbsp;&nbsp;
+        <select id = "eventType" name = "eventType" required>
+            <option value = "invalid" selected disabled hidden>Choose one</option>
+            <option value = "birthday">Birthday</option>
+            <option value = "reunion">Reunion</option>
+            <option value = "concert">Concert</option>
+            <option value = "wedding">Wedding</option>
+            <option value = "promenade">Promenade</option>
+            <option value = "bazaar">Bazaar</option>
+        </select>
+
+    <!-- Event Title-->    
+    <br><br>
+    <label for = "eventTitle"><b>Event Title:</b></label> &nbsp;&nbsp;
+        <input type = "text" name = "eventTitle" id = "eventTitle" required> 
+
+    <!-- Event Dates-->    
+    <br><br>   
+    <label for = "eventStart eventEnd"><b>Event Dates:</b></label> &nbsp;&nbsp;
+        <input type = "text" name = "eventStart" id = "eventStart" pattern = "^(((0)[0-9])|((1)[0-2]))([\/])([0-2][0-9]|(3)[0-1])([\/])([0-9]{4})$" minlength="10" maxlength="10" required> to
+        <input type = "text" name = "eventEnd" id = "eventEnd" pattern = "^(((0)[0-9])|((1)[0-2]))([\/])([0-2][0-9]|(3)[0-1])([\/])([0-9]{4})$" minlength="10" maxlength="10" required> (Please follow the Format: mm/dd/yyyy)
+
+    <!-- Post Dates-->  
+    <br><br> 
+    <label for = "postDate"><b>Posting Date:</b></label> &nbsp;&nbsp;
+        <input type = "text" name = "postDate" id = "postDate" pattern = "^(((0)[0-9])|((1)[0-2]))([\/])([0-2][0-9]|(3)[0-1])([\/])([0-9]{4})$" minlength="10" maxlength="10" required> (Please follow the Format: mm/dd/yyyy) 
+    
+    <br><br>
+            <input type="checkbox" name="check" value="reg" id = question1>Is registration required?<br>      
+            <input type="checkbox" name="check" value="family" id = "question2">Is this event associated with any Family Programs?<br>      
+            <input type="checkbox" name="check" value="autosend_email" id = "question3">Upon Registration Completion, Are Users to Receive an Auto Generated Email?<br>
+            <input type="checkbox" name="check" value="point_of_contact" id = "question4">Is There a Point of Contact?<br>  
+            <input type="checkbox" name="check" value="hosting_command" id = "question5">Is There a Hosting Command Point of Contact?<br>  
+            <br>      
+            
+    <input type = "submit" id = "save" value = "Save" onClick = "validate()"/>
+    <input type = "button" id = "reset" value = "Cancel" onClick = "clearForm()"/>
+   </fieldset> 
+    </form>
+
+    <p id = "errorLog" style = "color:blue"></p> 
+</body>
+</html>
